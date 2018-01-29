@@ -8,12 +8,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class pagecontroller {
-	
+	 
 	@RequestMapping(value={"/","home","index"})
 	public ModelAndView index()
 	{
 		ModelAndView mv=new ModelAndView("page");
-		mv.addObject("greeting","welcome to trhhhhhhhhhhhhhhh spring mvc");
+		mv.addObject("title","Home");
+		mv.addObject("userClickHome", true);
+		return mv;
+	}
+	@RequestMapping(value="/about")
+	public ModelAndView about()
+	{
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title","About us");
+		mv.addObject("userClickAbout", true);
+		return mv;
+	}
+	
+	@RequestMapping(value="/contact")
+	public ModelAndView contact()
+	{
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title","contact us");
+		mv.addObject("userClickContact", true);
 		return mv;
 	}
 	/*@RequestMapping(value="/test")
@@ -24,7 +42,7 @@ public class pagecontroller {
 		return mv;
 	}*/
 	
-	@RequestMapping(value="/test/{greeting}")
+	/*@RequestMapping(value="/test/{greeting}")
 	public ModelAndView test(@PathVariable("greeting")String greeting)
 	{
 		if(greeting==null)
@@ -34,7 +52,7 @@ public class pagecontroller {
 		ModelAndView mv=new ModelAndView("page");
 		mv.addObject("greeting",greeting);
 		return mv;
-	}
+	}*/
 	
 
 }
